@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <h1 class="left">Blog posts</h1><%= link_to "Add new post", new_post_path, class:'btn btn-default right' %>
+    <hr>
+    <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <h3><%= link_to "#{post.title}", post_path(post) %></h3>
+        <ul>
+          <li>
+            <small><%= "Posted: #{post.date_published}" %></small>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+  <div class="col-md-2">
+  </div>
+  </div
