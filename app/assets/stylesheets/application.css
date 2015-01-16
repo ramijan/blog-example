@@ -38,3 +38,12 @@ body {
 .btn-primary {
   margin-bottom: 20px;
 }
+
+.btn-primary.comment {
+  margin-top: 10px;
+}
+
+textarea.comment {
+  height: 100px !important;
+  width: 80%;
+}

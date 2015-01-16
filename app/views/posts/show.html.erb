@@ -2,8 +2,28 @@
   <div class="col-md-2">
   </div>
   <div class="col-md-8">
-    <h2><%= @post.title %></h2>
+    <h2 class="left"><%= @post.title %>!</h2>
+    <%= link_to "Back", posts_path, class:'btn btn-default btn-sm right'  %>
+    <hr>
     <p><%= @post.body %></p>
+    <hr>
+    <div>
+      <h4>Comments:</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <%= comment.body %><br>
+          <small><%= comment.created_at.localtime.strftime("%A, %B %-d, %Y at %l:%M %p") %></small>
+        </p>
+      <% end %>
+
+      <h5>Add a comment:</h5>
+      <%= form_for @new_comment do |f| %>
+        <%= f.text_area :body, class:'form-control comment' %>
+        <%= f.hidden_field :post_id %>
+        <%= f.submit "Submit", class:'btn btn-sm btn-primary comment' %>
+      <% end %>
+
+    </div>
   </div>
   <div class="col-md-2">
   </div>
